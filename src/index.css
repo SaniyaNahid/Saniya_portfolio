@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-aurora: aurora 60s linear infinite;
+  --animate-blob-spin: blob-spin 25s ease infinite;
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+  @keyframes blob-spin {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.95) rotate(240deg);
+    }
+  }
+}
+
+/* Custom styles and utilities */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #E0E0E0;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  
+  /* Custom modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Glassmorphism utility */
+@utility glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+@utility glass-nav {
+  background: rgba(5, 5, 5, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #60a5fa 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility text-gradient-purple {
+  background-image: linear-gradient(135deg, #d8b4fe 0%, #c084fc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
